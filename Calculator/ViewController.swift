@@ -1,31 +1,34 @@
-//
-//  ViewController.swift
-//  Calculator
-//
-//  Created by Angela Yu on 10/09/2019.
-//  Copyright © 2019 London App Brewery. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     
+    private var isFinishedTypingNumber: Bool = true
+    
     
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
-        
-        //What should happen when a non-number button is pressed
-    
+        isFinishedTypingNumber = true
     }
-
+    
     
     @IBAction func numButtonPressed(_ sender: UIButton) {
+        // Check if the sender has a current title (text on a button, for example)
+        if let numValue = sender.currentTitle {
+            // Check if the user has finished typing a number
+            if isFinishedTypingNumber {
+                // If yes, set the display label to the current button's title
+                displayLabel.text = numValue
+                // Update the var to indicate that a number is being typed
+                isFinishedTypingNumber = false
+            }
+            else {
+                // If the user hasn't finished typing a number, append the current button's title to the display label
+                displayLabel.text = displayLabel.text! + numValue
+            }
+        }
         
-        //What should happen when a number is entered into the keypad
-    
     }
-
 }
 
