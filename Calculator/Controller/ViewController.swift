@@ -1,14 +1,10 @@
 import UIKit
-
 class ViewController: UIViewController {
-    
     @IBOutlet weak var displayLabel: UILabel!
-    
+    // private var to check if the typing is over 
     private var isFinishedTypingNumber: Bool = true
-    
-    //var to use the Model CalculatorLogic
-    var calculartorLogic = CalculatorLogic()
-    
+    //private var to use the Model CalculatorLogic
+    private var calculartorLogic = CalculatorLogic()
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         // Mark that the user has finished typing a number
         isFinishedTypingNumber = true
@@ -20,7 +16,6 @@ class ViewController: UIViewController {
         // Update the display label with the result of the calculation
         displayLabel.text = result
     }
-    
     @IBAction func numButtonPressed(_ sender: UIButton) {
         // Check if the sender has a current title (text on a button, for example)
         if let numValue = sender.currentTitle {
@@ -34,7 +29,5 @@ class ViewController: UIViewController {
             isFinishedTypingNumber = false
         }
     }
-
-
 }
 
